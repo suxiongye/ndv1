@@ -30,7 +30,7 @@ public class UConnServlet extends HttpServlet {
 //        out.println("Latency = " + uConnAction.getLatency());
         request.setAttribute("posPair", uConnAction.getPosPair());
         request.setAttribute("type", "uconn");
-        request.setAttribute("paramter", request.getParameter("prime"));
+        request.setAttribute("parameter", request.getParameter("prime"));
         request.setAttribute("latency", uConnAction.getLatency());
         RequestDispatcher dispatch = request.getRequestDispatcher("../show.jsp");
         dispatch.forward(request, response);

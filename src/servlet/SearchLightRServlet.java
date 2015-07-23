@@ -32,7 +32,7 @@ public class SearchLightRServlet extends HttpServlet {
        
         request.setAttribute("posPair", searchLightRAction.getPosPair());
         request.setAttribute("type", "searchLight-R");
-        request.setAttribute("paramter", request.getParameter("time"));
+        request.setAttribute("parameter", request.getParameter("time"));
         request.setAttribute("latency", searchLightRAction.getLatency());
         RequestDispatcher dispatch = request.getRequestDispatcher("../show.jsp");
         dispatch.forward(request, response);

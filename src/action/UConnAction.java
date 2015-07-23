@@ -67,8 +67,8 @@ public class UConnAction {
     public void initUConn(int prime)
     {
         Random random = new Random();
-        node1 = new UConnNode(prime,prime);
-        node2 = new UConnNode(prime,prime);
+        node1 = new UConnNode(prime,random.nextInt(prime));
+        node2 = new UConnNode(prime,random.nextInt(prime));
     }
 
     /**

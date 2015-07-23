@@ -1,6 +1,7 @@
 package servlet;
 
 import action.BirthdayAction;
+import bean.BirthdayNode;
 import bean.Point;
 
 import javax.servlet.RequestDispatcher;
@@ -20,7 +21,16 @@ public class BirthdayServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        BirthdayAction birthdayAction = new BirthdayAction(Integer.parseInt(request.getParameter("node_num")));
+        BirthdayAction birthdayAction =null;
+        if(request.getParameter("node_num")!=null&&request.getParameter("node_num")!=""){
+            birthdayAction = new BirthdayAction(Integer.parseInt(request.getParameter("node_num")));
+            request.setAttribute("parameter", request.getParameter("node_num"));
+        }
+        else
+        {
+            birthdayAction = new BirthdayAction(29);
+            request.setAttribute("parameter",29);
+        }
         response.setContentType("text;html;charset=utf-8");
 //        PrintWriter out = response.getWriter();
         birthdayAction.birthdayDis();
@@ -28,7 +38,6 @@ public class BirthdayServlet extends HttpServlet {
         
         request.setAttribute("posPair", posPair);
         request.setAttribute("type", "birthday");
-        request.setAttribute("paramter", request.getParameter("node_num"));
         request.setAttribute("latency", birthdayAction.getLatency());
         RequestDispatcher dispatch = request.getRequestDispatcher("../show.jsp");
         dispatch.forward(request, response);

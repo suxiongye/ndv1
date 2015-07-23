@@ -257,13 +257,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div style=" margin:30px auto;">
 			latency : ${latency};&nbsp&nbsp
 			algorithm : ${type};&nbsp&nbsp
-			parameter : ${paramter}
+			parameter : ${parameter}
 		</div>
 		
 		<c:if test="${type=='birthday'}">
 			<form class="form" action="servlet/BirthdayServlet" method="get">
     		<div class="form-group">
-        		<input style="visibility:hidden" type="text" class="form-control" name="node_num" value="${paramter}">
+        		<input style="visibility:hidden" type="text" class="form-control" name="node_num" value="${parameter}">
    			</div>
     		<div class="form-group">
         		<label class="form-control">
@@ -277,7 +277,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<c:if test="${type=='disco'}">
 			<form class="form" action="servlet/DiscoServlet" method="get">
     		<div class="form-group">
-        		<%String p = (String)request.getAttribute("paramter");
+        		<%String p = (String)request.getAttribute("parameter");
         		String[] strs = p.split(",");
         		 %>
         			<input style="visibility:hidden" type="text" class="form-control" name="prime1" value="<%=strs[0] %>">
@@ -299,7 +299,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<form class="form" action="servlet/SearchLightRServlet" method="get">
     		<div class="form-group">
         		
-        			<input style="visibility:hidden" type="text" class="form-control" name="time" value="${paramter}">
+        			<input style="visibility:hidden" type="text" class="form-control" name="time" value="${parameter}">
     		</div>
    		 	<div class="form-group">
         		<label class="form-control">
@@ -314,7 +314,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<form class="form" action="servlet/SearchLightSServlet" method="get">
     		<div class="form-group">
         		
-        		<input style="visibility:hidden" type="text" class="form-control" name="time" value="${paramter}">
+        		<input style="visibility:hidden" type="text" class="form-control" name="time" value="${parameter}">
     		</div>
     		<div class="form-group">
         		<label class="form-control">
@@ -325,11 +325,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</form>
 		</c:if>
 		
-		<c:if test="${type=='searchLight-S'}">
+		<c:if test="${type=='uconnect'}">
 			<form class="form" action="servlet/UConnServlet" method="get">
 			<div class="form-group">
     			
-    				<input style="visibility:hidden" type="text" class="form-control" name="prime" value="${paramter}">
+    				<input style="visibility:hidden" type="text" class="form-control" name="prime" value="${parameter}">
 			</div>
 			<div class="form-group">
     			<label class="form-control">
